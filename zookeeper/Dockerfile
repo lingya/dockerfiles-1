@@ -5,6 +5,6 @@ WORKDIR /opt
 RUN tar xvfz zookeeper-3.4.6.tar.gz
 RUN ln -s zookeeper-3.4.6 zookeeper
 ADD zoo.cfg /opt/zookeeper/conf/
-#EXPOSE 2181
+EXPOSE 2181
 ENTRYPOINT ["/opt/zookeeper/bin/zkServer.sh"] 
 CMD ["start-foreground"]
