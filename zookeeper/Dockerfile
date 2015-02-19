@@ -1,5 +1,5 @@
 FROM dockerfile/java:oracle-java8
-MAINTAINER martin.coxall@shneiderinvestmentassociates.com
+MAINTAINER martin.coxall@schneiderinvestmentassociates.com
 ADD http://mirrors.ukfast.co.uk/sites/ftp.apache.org/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz /opt/
 WORKDIR /opt
 RUN tar xvfz zookeeper-3.4.6.tar.gz
