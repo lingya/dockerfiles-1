@@ -1,7 +1,9 @@
 FROM dockerfile/java:oracle-java8
 MAINTAINER Martin Coxall "martin.coxall@schneiderinvestmentassociates.com"
-ADD http://path.to/release.jar /opt/malefix/release.jar
-ONBUILD ADD . /opt/malefix
-EXPOSE <port for zookeeper>
-ENTRYPOINT ["/usr/bin/java"]
-CMD ["-jar" "/opt/malefix/release.jar"]
+ADD https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein /usr/bin/
+RUN chmod a+x /usr/bin/lein
+ENV LEIN_ROOT=true
+WORKDIR /data
+RUN git clone https://github.com/sra-london/malefix
+WORKDIR /data/malefix
+RUN lein compile
